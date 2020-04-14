@@ -1,11 +1,11 @@
-nginx {
-    checkout scm
-
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-
-        def customImage = docker.build("edeel89/myportfolioapp}")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
+pipeline {
+    agent { dockerfile true }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'nginx --version'
+                sh 'svn --version'
+            }
+        }
     }
 }
