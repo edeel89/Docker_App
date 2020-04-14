@@ -1,4 +1,4 @@
-node {
+nginx {
     checkout scm
 
     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
